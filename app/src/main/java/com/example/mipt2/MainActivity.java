@@ -83,8 +83,8 @@ public class MainActivity extends AppCompatActivity {
         String charString = getString(R.string.selection_chars);
 
 
-        String wordString = getString(R.string.selection_words);//words
-        String numberString = getString(R.string.selection_numbers);//numbers
+        String wordString = getString(R.string.selection_words);
+        String numberString = getString(R.string.selection_numbers);
 
         if(spSelectedOption.equalsIgnoreCase(charString)){
             String enteredUserText = this.edEnteredText.getText().toString();
@@ -95,13 +95,13 @@ public class MainActivity extends AppCompatActivity {
         }
         else if(spSelectedOption.equalsIgnoreCase(wordString)){
             String enteredUserText = this.edEnteredText.getText().toString();
-            int wordsCount = TextCounter.getWordsCount(enteredUserText); //PAKEIST CIA BEI TEXTCOUNTER
+            int wordsCount = TextCounter.getWordsCount(enteredUserText);
             this.tvResult.setText(String.valueOf(wordsCount));
 
         }
         else if(spSelectedOption.equalsIgnoreCase(numberString)){
             String enteredUserText = this.edEnteredText.getText().toString();
-            int numberCount = TextCounter.getNumbersCount(enteredUserText); //PAKEISTI CIA BEI TEXTCOUNTER
+            int numberCount = TextCounter.getNumbersCount(enteredUserText);
             this.tvResult.setText(String.valueOf(numberCount));
         }
 
