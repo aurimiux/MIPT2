@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         Toast.makeText(this, "onDestroy", Toast.LENGTH_SHORT).show();
-
+        Log.i("Routine", "onDestroy => ");
     }
 
 
@@ -82,14 +82,27 @@ public class MainActivity extends AppCompatActivity {
         String spSelectedOption = this.spCounterOption.getSelectedItem().toString();
         String charString = getString(R.string.selection_chars);
 
+
+        String wordString = getString(R.string.selection_words);//words
+        String numberString = getString(R.string.selection_numbers);//numbers
+
         if(spSelectedOption.equalsIgnoreCase(charString)){
             String enteredUserText = this.edEnteredText.getText().toString();
-            int charsCount = TextCounter.getCharsCount(enteredUserText);
 
+            int charsCount = TextCounter.getCharsCount(enteredUserText);
             this.tvResult.setText(String.valueOf(charsCount));
+
         }
-        else{
-            Toast.makeText(this,"Not implemented", Toast.LENGTH_SHORT);
+        else if(spSelectedOption.equalsIgnoreCase(wordString)){
+            String enteredUserText = this.edEnteredText.getText().toString();
+            int wordsCount = TextCounter.getWordsCount(enteredUserText); //PAKEIST CIA BEI TEXTCOUNTER
+            this.tvResult.setText(String.valueOf(wordsCount));
+
+        }
+        else if(spSelectedOption.equalsIgnoreCase(numberString)){
+            String enteredUserText = this.edEnteredText.getText().toString();
+            int numberCount = TextCounter.getNumbersCount(enteredUserText); //PAKEISTI CIA BEI TEXTCOUNTER
+            this.tvResult.setText(String.valueOf(numberCount));
         }
 
     }
